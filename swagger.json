@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": " Users Api",
-    "description": " Users Api",
+    "title": "My API",
+    "description": "Members API, including coaches",
     "version": "1.0.0"
   },
-  "host": "cse341-node-739k.onrender.com",
+  "host": "cse341-project-2-2pfk.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -24,10 +24,10 @@
         }
       }
     },
-    "/users/": {
+    "/members/": {
       "get": {
         "tags": [
-          "Users"
+          "Members"
         ],
         "description": "",
         "produces": [
@@ -36,12 +36,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "tags": [
-          "Users"
+          "Members"
         ],
         "description": "",
         "parameters": [
@@ -51,16 +54,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "username": {
-                  "example": "any"
-                },
                 "name": {
                   "example": "any"
                 },
-                "ipaddress": {
+                "age": {
+                  "example": "any"
+                },
+                "breed": {
+                  "example": "any"
+                },
+                "ownerName": {
+                  "example": "any"
+                },
+                "appointmentDate": {
+                  "example": "any"
+                },
+                "weight": {
+                  "example": "any"
+                },
+                "medicalHistory": {
+                  "example": "any"
+                },
+                "coachId": {
                   "example": "any"
                 }
               }
@@ -68,8 +83,14 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -77,10 +98,10 @@
         }
       }
     },
-    "/users/{id}": {
+    "/members/{id}": {
       "get": {
         "tags": [
-          "Users"
+          "Members"
         ],
         "description": "",
         "produces": [
@@ -97,12 +118,18 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
         "tags": [
-          "Users"
+          "Members"
         ],
         "description": "",
         "parameters": [
@@ -118,16 +145,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "username": {
-                  "example": "any"
-                },
                 "name": {
                   "example": "any"
                 },
-                "ipaddress": {
+                "age": {
+                  "example": "any"
+                },
+                "breed": {
+                  "example": "any"
+                },
+                "ownerName": {
+                  "example": "any"
+                },
+                "appointmentDate": {
+                  "example": "any"
+                },
+                "weight": {
+                  "example": "any"
+                },
+                "medicalHistory": {
+                  "example": "any"
+                },
+                "coachId": {
                   "example": "any"
                 }
               }
@@ -137,6 +176,15 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -145,7 +193,7 @@
       },
       "delete": {
         "tags": [
-          "Users"
+          "Members"
         ],
         "description": "",
         "parameters": [
@@ -159,6 +207,178 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/coaches/": {
+      "get": {
+        "tags": [
+          "Coaches"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Coaches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "specialty": {
+                  "example": "any"
+                },
+                "contactNumber": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/coaches/{id}": {
+      "get": {
+        "tags": [
+          "Coaches"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Coaches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "specialty": {
+                  "example": "any"
+                },
+                "contactNumber": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Coaches"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"

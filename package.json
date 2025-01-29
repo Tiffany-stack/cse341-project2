@@ -1,27 +1,24 @@
 {
-  "name": "cse341-node",
+  "name": "cse341-project2",
   "version": "1.0.0",
-  "description": "My First Project",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tiffany-stack/cse341-node.git"
-  },
-  "author": "Tiffany Nocos",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tiffany-stack/cse341-node/issues"
-  },
-  "homepage": "https://github.com/Tiffany-stack/cse341-node#readme",
+  "type": "commonjs",
+  "description": "",
   "dependencies": {
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-validator": "^7.2.1",
     "mongodb": "^6.12.0",
+    "mongoose": "^8.9.5",
     "swagger-autogen": "^2.23.7",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "validatorjs": "^3.22.1"
   }
 }
