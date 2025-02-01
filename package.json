@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tiffany Nocos",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
+  "description": "My Project",
   "dependencies": {
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
@@ -20,5 +21,13 @@
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1",
     "validatorjs": "^3.22.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiffany-stack/cse341-project2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Tiffany-stack/cse341-project2/issues"
+  },
+  "homepage": "https://github.com/Tiffany-stack/cse341-project2#readme"
 }
