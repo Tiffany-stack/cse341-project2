@@ -5,7 +5,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res) => {
   //#swagger.tags = ['Coaches']
   try {
-    const result = await mongodb.getDatabase().db().collection('coaches').find().toArray();
+    const result = await mongodb.getDatabase().collection('coaches').find().toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result);
   } catch (error) {
@@ -17,7 +17,7 @@ const getSingle = async (req, res) => {
   //#swagger.tags = ['Coaches']
   try {
     const coachId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('coaches').find({ _id: coachId }).toArray();
+    const result = await mongodb.getDatabase().collection('coaches').find({ _id: coachId }).toArray();
 
     if (result.length > 0) {
       res.setHeader('Content-Type', 'application/json');
@@ -40,7 +40,7 @@ const createCoach = async (req, res) => {
     }
 
     const coach = { name, specialty, experienceYears, contactNumber };
-    const response = await mongodb.getDatabase().db().collection('coaches').insertOne(coach);
+    const response = await mongodb.getDatabase().collection('coaches').insertOne(coach);
 
     if (response.acknowledged) {
       res.status(201).json({ message: 'Coach created successfully', coachId: response.insertedId });
@@ -63,7 +63,7 @@ const updateCoach = async (req, res) => {
     }
 
     const coach = { name, specialty, experienceYears, contactNumber };
-    const response = await mongodb.getDatabase().db().collection('coaches').replaceOne({ _id: coachId }, coach);
+    const response = await mongodb.getDatabase().collection('coaches').replaceOne({ _id: coachId }, coach);
 
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -79,7 +79,7 @@ const deleteCoach = async (req, res) => {
   //#swagger.tags = ['Coaches']
   try {
     const coachId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('coaches').deleteOne({ _id: coachId });
+    const response = await mongodb.getDatabase().collection('coaches').deleteOne({ _id: coachId });
 
     if (response.deletedCount > 0) {
       res.status(204).send();

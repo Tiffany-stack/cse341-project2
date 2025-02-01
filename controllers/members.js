@@ -5,7 +5,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res) => {
   //#swagger.tags = ['Members']
   try {
-    const result = await mongodb.getDatabase().db().collection('members').aggregate([
+    const result = await mongodb.getDatabase().collection('members').aggregate([
       {
         $lookup: {
           from: 'coaches',
@@ -27,7 +27,7 @@ const getSingle = async (req, res) => {
   //#swagger.tags = ['Members']
   try {
     const memberId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('members').aggregate([
+    const result = await mongodb.getDatabase().collection('members').aggregate([
       { $match: { _id: memberId } },
       {
         $lookup: {
@@ -68,7 +68,7 @@ const createMember = async (req, res) => {
       coachId: coachId ? new ObjectId(coachId) : null
     };
 
-    const response = await mongodb.getDatabase().db().collection('members').insertOne(member);
+    const response = await mongodb.getDatabase().collection('members').insertOne(member);
 
     if (response.acknowledged) {
       res.status(201).json({ message: 'Member created successfully', memberId: response.insertedId });
@@ -99,7 +99,7 @@ const updateMember = async (req, res) => {
       coachId: coachId ? new ObjectId(coachId) : null
     };
 
-    const response = await mongodb.getDatabase().db().collection('members').replaceOne({ _id: memberId }, member);
+    const response = await mongodb.getDatabase().collection('members').replaceOne({ _id: memberId }, member);
 
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -115,7 +115,7 @@ const deleteMember = async (req, res) => {
   //#swagger.tags = ['Members']
   try {
     const memberId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('members').deleteOne({ _id: memberId });
+    const response = await mongodb.getDatabase().collection('members').deleteOne({ _id: memberId });
 
     if (response.deletedCount > 0) {
       res.status(204).send();

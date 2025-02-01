@@ -5,7 +5,7 @@
     "description": "Members API, including coaches",
     "version": "1.0.0"
   },
-  "host": "cse341-project-2-2pfk.onrender.com",
+  "host": "cse341-project2-tiqd.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -60,19 +60,13 @@
                 "age": {
                   "example": "any"
                 },
-                "breed": {
+                "membershipType": {
                   "example": "any"
                 },
-                "ownerName": {
+                "joinDate": {
                   "example": "any"
                 },
-                "appointmentDate": {
-                  "example": "any"
-                },
-                "weight": {
-                  "example": "any"
-                },
-                "medicalHistory": {
+                "contactNumber": {
                   "example": "any"
                 },
                 "coachId": {
@@ -151,19 +145,13 @@
                 "age": {
                   "example": "any"
                 },
-                "breed": {
+                "membershipType": {
                   "example": "any"
                 },
-                "ownerName": {
+                "joinDate": {
                   "example": "any"
                 },
-                "appointmentDate": {
-                  "example": "any"
-                },
-                "weight": {
-                  "example": "any"
-                },
-                "medicalHistory": {
+                "contactNumber": {
                   "example": "any"
                 },
                 "coachId": {
@@ -253,10 +241,10 @@
                 "specialty": {
                   "example": "any"
                 },
-                "contactNumber": {
+                "experienceYears": {
                   "example": "any"
                 },
-                "address": {
+                "contactNumber": {
                   "example": "any"
                 }
               }
@@ -332,10 +320,10 @@
                 "specialty": {
                   "example": "any"
                 },
-                "contactNumber": {
+                "experienceYears": {
                   "example": "any"
                 },
-                "address": {
+                "contactNumber": {
                   "example": "any"
                 }
               }
