@@ -3,13 +3,12 @@ const validator = require('../helpers/validate');
 // Member validation
 const validateMember = (req, res, next) => {
   const validationRule = {
-    firstName: 'required|string',
-    lastName: 'required|string',
-    email: 'required|email',
-    phone: 'required|string',
-    membershipStartDate: 'required|date',
-    membershipType: 'required|string',
-    coachId: 'required|string' // Assuming members are assigned a coach
+    name: 'required|string',                // 'name' for members
+    age: 'required|numeric',                // 'age' for members
+    membershipType: 'required|string',      // 'membershipType' for members
+    joinDate: 'required|date',              // 'joinDate' for members
+    contactNumber: 'required|string',       // 'contactNumber' for members
+    coachId: 'required|string'              // 'coachId' for members (foreign key to coaches)
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
@@ -27,11 +26,10 @@ const validateMember = (req, res, next) => {
 // Coach validation
 const validateCoach = (req, res, next) => {
   const validationRule = {
-    name: 'required|string',
-    specialty: 'required|string',
-    email: 'required|email',
-    phone: 'required|string',
-    hireDate: 'required|date'
+    name: 'required|string',                // 'name' for coaches
+    specialty: 'required|string',           // 'specialty' for coaches
+    experienceYears: 'required|numeric',    // 'experienceYears' for coaches
+    contactNumber: 'required|string'        // 'contactNumber' for coaches
   };
 
   validator(req.body, validationRule, {}, (err, status) => {
