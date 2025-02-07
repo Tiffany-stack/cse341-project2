@@ -1,20 +1,20 @@
+const passport = require('passport');
 const router = require('express').Router();
 
+
+router.get('/login', passport.authenticate('github'), (req, res) => {});
+
+router.get('/logout', function(req, res, next) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+});
+
 router.use('/', require('./swagger'));
+router.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
 
-// Basic Hello World endpoint
-router.get('/', (req, res) => {
-    //#swagger.tags = ['Hello World']
-    res.send("Hello World!");
-});
-
-// Register the routes for members and coaches
-router.use('/members', require('./members'));
-router.use('/coaches', require('./coaches'));
-
-// Catch-all handler for undefined routes (good practice to handle unknown routes)
-router.use((req, res) => {
-    res.status(404).json({ message: "Route not found" });
-});
+router.use('/products', require('./products'));
+router.use('/sellers', require('./sellers'));
 
 module.exports = router;
