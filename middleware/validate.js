@@ -80,8 +80,58 @@ const validate = (req, res, next) => {
     next();
 };
 
+//W06 
+
+// Supplier validation
+const validateSupplier = (req, res, next) => {
+    const validationRule = {
+      name: 'required|string',
+      contactPerson: 'required|string',
+      phone: 'required|string',
+      email: 'required|email',
+      address: 'required|string',
+      country: 'required|string',
+      company: 'required|string',
+      rating: 'required|numeric|min:1|max:5'
+    };
+  
+    validator(req.body, validationRule, {}, (err, status) => {
+      if (!status) {
+        return res.status(412).send({
+          success: false,
+          message: 'Supplier validation failed',
+          data: err
+        });
+      }
+      next();
+    });
+  };
+
+// User validation
+const validateUser = (req, res, next) => {
+    const validationRule = {
+      username: 'required|string',
+      email: 'required|email',
+      password: 'required|string|min:6',
+      role: 'required|string'
+    };
+  
+    validator(req.body, validationRule, {}, (err, status) => {
+      if (!status) {
+        return res.status(412).send({
+          success: false,
+          message: 'User validation failed',
+          data: err
+        });
+      }
+      next();
+    });
+  };
+
 module.exports = {
     productValidationRules,
     sellerValidationRules,
+    validateSupplier,
+    validateUser,
     validate
 };

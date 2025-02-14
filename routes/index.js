@@ -16,5 +16,7 @@ router.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logge
 
 router.use('/products', require('./products'));
 router.use('/sellers', require('./sellers'));
+router.use('/users', require('./users'));
+router.use('/suppliers', require('./suppliers'));
 
 module.exports = router;
