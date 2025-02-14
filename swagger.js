@@ -5,7 +5,7 @@ const doc = {
     title: 'Product & Sellers API',
     description: 'Product & Sellers ',
   },
-  host: 'https://cse341-project2-tiqd.onrender.com',
+  host: 'localhost:10000',
   schema: ['https']
 };
 
